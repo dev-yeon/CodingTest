@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+  <script>
+    /*
+    if 문은 
+    어떤 조건에 맞는 코드 블럭을 실행하거나, 실행하지 않게 하게 제어하는 조건문
+    즉 특정 조건이 참인지 거짓인지에 따라 실행할 코드를 결정하는 역할을 한다. 
+    코드의 흐름을 제어하는 목적으로 많이 사용 
+
+    ex.01 
+    
+    if(조건1) {
+      조건1이 참(true)일때 실행하는 코드 블럭 
+    } else {
+      조건1 이 거짓 (false) 일때 실행하는 코드 블럭 
+    
+    }
+
+    ex02. 
+
+        if(조건1) {
+      조건1이 참(true)일때 실행하는 코드 블럭 
+        }else if(조건2) {
+
+        조건1이 false 이면서, 조건2가 true 일때 실행하는 코드 블럭 
+    } else {
+      조건1 이 거짓 (false) 일때 실행하는 코드 블럭 
+    
+    }
+    */
+
+    let age = 20;
+
+    if (age >= 18) {
+      console.log('성인입니다.');
+
+    } else {
+      console.log('미성년자 입니다.');
+    }
+
+    let score = 72;
+    if (score >= 90) {
+      console.log('A학점');
+    } else if (score >= 80) {
+      console.log('B학점');
+    } else if (score >= 70) {
+      console.log('C학점');
+    } else if (score >= 60) {
+      console.log('C학점');
+    } else {
+      console.log('F학점');
+    }
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

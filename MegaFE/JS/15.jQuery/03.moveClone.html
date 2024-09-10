@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      /*
+      객체를 추가하는 매서드 
+      appendTo() = a.appendTo(b) b의 마지막 자손으로 a 를 추가
+      prependTo() = a.prependTo(b) b의 첫번째 자손으로 a를 추가 
+
+      insertBefore() = a.insertBefore(b) =  b의 형으로 a 를 추가 
+      insertAfter() = a.insertAfter(b) = b의 동생으로 a를 추가 
+
+      append() = a.append(b) a 의 마지막 자손으로 b를 추가 
+      prepend() = a.prepend(b) a 의 첫번째 자손으로 b 를 추가
+      before() = a.before(b) a 의 형으로 b를 추가 
+      after() = a.after(b) a의 동생으로 b를 추가 
+      선택자와 요소의 위치만 바뀔 뿐, 결과는 같다. 상황에 따라 편리한 방법을 선택해서 사용하면 된다. 
+      
+      .clone() 선택된 객체를 복제 
+      .remove() 객체를 삭제
+      .empty() 선택된 객체의 하위요소를 삭제 
+
+
+      */
+
+      let item = $('<li class="item">hi</li>');   //객체의 생성 
+      //변수로 생성된 요소는 dom에 한번만 추가 할 수 있다.(재사용이 불가능)
+      let list = $('.list');
+      let two = list.children().first().next().clone();
+
+      //복제된 객체도 dom에서 한번만 추가 할 수 있다. (재사용 불가능)
+
+
+      item.appendTo(list);
+      item.prependTo(list);
+      list.append(item);
+      item.insertBefore(list);
+      item.insertAfter(list);
+
+      two.insertAfter(list);
+      two.insertBefore(list);
+
+      list.empty()
+    })
+  </script>
+</head>
+
+<body>
+  <ul class="list">
+    <li class="item">item</li>
+    <li class="item item2">item</li>
+    <li class="item">item</li>
+    <li class="item item3">item</li>
+    <li class="item">item</li>
+    <li class="item">item</li>
+  </ul>
+</body>
+
+</html>

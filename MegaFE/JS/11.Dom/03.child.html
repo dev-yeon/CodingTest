@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>하위요소 참조하기</title>
+  <script>
+    /*
+    부모요소 안에 하위요소로 객체를 찾거나 삭제, 수정하는 선택자 매서드 
+  
+    appendChild() = 자손요소를 추가
+    removeChild() = 가손요소를 삭제
+    replaceChild() = 가손요소를 수정
+  
+  
+    
+    */
+
+    window.onload = function () {
+      let parent = document.querySelector('.parent');
+
+      let childItem = document.createElement('div'); // 클래스나 아이디 명을 넣을수 없고, 태그명을 넣어야 한다. 
+      childItem.className = 'child' // 클래스 추가 매서드 
+      childItem.innerHTML = '5'
+
+      parent.appendChild(childItem)
+      //appendChild() = 자식요소 제일 마지막에 요소를 추가. 
+
+      // 자식요소 추가 방법 2 
+      let childItem02 = ' <div class="child">6</div>'
+      parent.innerHTML += childItem02; // 기존에 있던 내용에 추가를 하는 방법 
+      //parent.innerHTML = childItem02;  // 기존에 있던 내용을 모두 삭제하고 새로운 내용으로 교체 
+      // 내용을 추가하고 싶으면 += 연산자를 사용 
+
+      //removeChild 
+      // document.body.removeChild(parent);
+      parent.removeChild(parent.childNodes[3]); // 특정한 순번에 있는 자식요소를 삭제 
+
+      // replacechild 
+      let newChild = document.createElement('div');
+      newChild.className = 'child';
+      newChild.innerHTML = 'replace';
+
+      parent.replaceChild(newChild, parent.childNodes[1]);
+      // parent.replaceChild(수정할 객체, 수정될 객체) =  특정 자식 요소를 다른 요소로 교체 
+
+      let a = parent.childNodes;
+
+      let b = parent.childElementCount;
+
+      /*
+      node = 문서 객체 모델의 기본 구성 요소 
+      childnode 는 텍스트와 노드를 모두 포함해서 출력 
+      (노드 사이에 있는 공백, 텍스트도 포함 하기 때문에 갯수가 달라질 수 있다) 
+
+      parent.childElementCount; 
+      공백이나, 텍스트와 같은 비노드를 제외한 순수 부모의 직계 
+      */
+
+
+      // console.log(a)
+
+
+
+
+
+
+    }
+  </script>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+  </div>
+</body>
+
+</html>

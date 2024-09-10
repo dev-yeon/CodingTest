@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    /*
+    제이쿼리 
+    자바스크립트를 기반으로 한 라이브러리 , 자바 스크립트를 더 쉽게 사용 할 수 있도록 해준다. 
+    dom 조작, 이벤트 처리, 애니메이션, ajax 등을 간단한 문법으로 구현 할 수 있게 하는 라이브러리. 
+
+    특징 : 
+    1. 간단하고 직관적인 문법 :  선택자, 메서드 등을 통해 html 요소의 조작을 쉽게 할 수 있음
+    2. 브라우저간 호환성: 다양한 브라우저에서 일관된 동작 보장 
+    3. 효율적인 dom 조작: html 문서의 탐색, 요소의 삽입 /삭제 , 속성의 변경을 손쉽게 진행 할 수 있다. 
+    4. 기능 제공 : 이벤트, 애니메이션 효과, ajax 의 통신 
+    5. 함축어의 사용: 제이쿼리는 함축어를 자주 사용하는데,  대표적인 예가  `$`이다. 
+    $는 jQuery의 객체의 별칭으로, jQuery를 $로 대체해서 호출 할 수 있게 해준다. 
+    */
+    $(document).ready(function () {
+      // 선택자 잡는법 
+      let item = $('.list'); // 제이쿼리는 css 선택자를 채택 
+      let li = $('.list li') //  제이쿼리는 for문이 내장되어 있어서 반복문을 사용하지 않는다. 
+      //each() 같은 경우는 사용 
+      let title = $('#title');
+      let text = $('div');
+      // console.log(item)
+      // console.log(li);
+
+    }) //jQuery 
+    //$(function () { })
+    // 준비구문 작성법 2
+    //  $(function(){}) //  $(document).ready(function(){}) 축약형
+    // $(window).load(function(){}) //전체 페이지 (이미지 css등 모든 리소스 포함) 가 로드된 후 실행 
+
+    /*
+    ready 와 load 의 차이점 
+    ready는 dom이 완전히 로드되면 실행디지만, 리소스 (이미지, css)가 로드되지 않았을 수도 있다. 
+    load는 모든 페이지의 리소스(이미지 , css, 비디오 등) 가 완전히 로드된 후 실행 
+    load 는 페이지 로드 완료 후 사이즈를 인식( 반응형 ), 실시간으로 불어와야 하는 작업에 사용 
+    */
+
+
+  </script>
+</head>
+
+<body>
+  <ul class="list">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+  <div id="title">Lorem ipsum dolor sit amet.</div>
+  <div class="text">Lorem ipsum dolor sit amet.</div>
+</body>
+
+</html>

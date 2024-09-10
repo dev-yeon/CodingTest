@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수학 관련 메서드</title>
+  <script>
+    /*
+    Math.**
+    수학과 관련된 메서드 들을 말하며, 여러개의 세부 메서드 들이 있다.
+    실제 숫자를 가지고 있는 속성과, 메서드 들을 수학적인 처리를 하도록 해주는 메서드. 
+
+    */
+
+    let circle = Math.PI
+    console.log(circle);
+
+    let num = 3.141592653589793;
+
+    console.log(Math.floor(num)); // 소숫점 내림 
+
+    console.log(Math.ceil(num)); // 소숫점 올림
+
+    console.log(Math.round(num)); // 소숫점 반올림
+
+    //floor ceil  round 는 소숫점을 판단해서 정수반 출력 
+
+    console.log(Math.abs(num)); //숫자의 절대값을 출력함. 음수일 경우 양수로 변환 
+
+    console.log(Math.max(10, 20, 30, 40, 50, 60, 2, 1234234, 3)); // 제시된 값 중에서 제일 큰 값만 출력.
+    console.log(Math.min(10, 20, 30, 40, 50, 60, 2, 1234234, 3)); // 제시된 값 중에서 제일 작은 값만 출력.
+    console.clear()
+    console.log(Math.random()); // 0~1 사이의 소숫점을 출력한다. (1은 나오지 않음)
+    console.log(Math.floor(Math.random() * 10) + 1); // 1~10 사이의 랜덤한 숫자를 나타냄. 
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

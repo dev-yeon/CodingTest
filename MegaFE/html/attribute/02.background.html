@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 속성</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 1500px;
+            /* background-color: #A8D052;*/
+            /* background-color: rgb(168, 208, 82, 0.3); */
+            /* background-image: url('./background/space.jpg'); */
+            /* background-image: url('./background/background.gif');*/
+            /* background-repeat: no-repeat; */
+            /* background-position: 100px; */
+            /* background-size: auto 1000px; 보통 비율을 유지하기 위해 한쪽만 , 세로 기준 하고프면 이렇게 */
+            /* background-size: cover; */
+
+            background: coral url('./background/background.gif') no-repeat center center / 200px;
+        }
+
+        /*
+            배경속성 
+            "컨텐츠 영역" 에 대한 배경과 관련된 속성
+            컬러, 이미지(사이즈, 배치) 에 대한 속성으로 이루어져 있다 
+            1. background-color : 배경 컬러 
+            - 정해진 컬러 프리셋 네임 (red, blue, green)
+            - #뒤에 6자리 숫자와 알파벳으로 이루어진 헥사코드 
+            - (rgba = red, green, blue, alpha 값(투명도))
+
+            - rgba= a는 알파값으로 투명도를 의미한다. 알파값은 0~1사이의 소숫값을 넣는다. 
+            (html5에 새로 생긴 스타일)
+
+            2. 이미지
+            배경 이미지는 선택자의 영역만큼만 배경으로 설정한다.
+            배경이미지는 영역의 크기보다 크면 이미지가 잘리고,
+            이미지가 영역보다 작으면, 영역을 채우기 위해서 패턴처럼 반복하려는 성질을 가지고 
+            있다. 
+
+            백그라운드로 들어가는 이미지는 컨텐츠로서 의미를 갖고 있지 않다 보기 때문에 
+            잘려도 상관없는 이미지를 주로 사용한다. 
+            (의미를 담고있는 이미지는 img태그나, 대체 방법을 사용해야 한다.)
+
+            3. 반복 속성 - repeat ( 배경이미지 반복속성 )
+            - repeat : 반복 (기본값)
+            - no-repeat : 반복하지 않음
+            - repeat-x  : 가로축만 반복
+            - repeat-y  : 세로축만 반복
+
+            4. 이미지 위치 속성 - position 
+            모든 객체 (태그)의 기본 위치 속성은 좌측 상단 (left : 0, top: 0 )을 기준으로 한다 
+            위치를 이동할때에는 position 속성을 사용한다 
+            position 의 그룹속성은 x,y 축 순서로 작성한다. px뿐만 아니라, %, em, rem같은 단위로 작성할 수도 있다. 
+            특정한 위치값 ( left, right, top, bottom, center ) 로도 입력할 수 있다. 
+
+            값을 생략하면 0 이나 같은 값으로 적용 되는 것이 아니라. center 정렬이 된다. 
+            움직이지 않더라도 값을 지정해야 한다. 
+
+            5. 사이즈 - size 
+            배경 이미지는 원본 크기로만 들어오기 때문에 크기를 따로 설정하는  경우가 많다 
+            기본 값은 auto (원본 비율 유지)
+            사이즈가 그룹 속성에 들어갈려면 무조건적으로 포지션이 있어야 한다. 
+
+            수치를 입력: 고유 사이즈에서 입력된 크기로 변환
+            첫번째 값 : width , 두번째 값 : height
+
+            cover : 이미지를 영역에 꽉 채운다는 전제하에 이미지를 늘린다. 
+            (영역이 기준이기 때문에 이미지가 잘릴수도 있다. )
+            contain : 이미지 전체를 다 보여준다는 전제 하에 이미지를 늘려준다. 
+            (이미지가 기준이기 때문에, 비율에 따라 영역이 남을 수도 있다. )
+
+            그룹 속성 
+            - 순서는 바뀌어도 상관없고, 필요한 값만 넣어줘도 상관 없다. (나머지는 기본값이있다))
+            - 다만, 주의할 점은 
+            size의 경우. position이 있는 경우에만 그룹 속성에 사용할 수 있다. 
+            position이 없는 경우, size는 position 값으로 인식 
+        */
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+</body>
+
+</html>

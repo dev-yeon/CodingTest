@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가상 선택자 </title>
+  <style>
+    /*
+    가상 선택자 
+    - 사용자의 행동에 영향을 받는 요소를 생성 ( 이벤트 )
+    - 특정한 위치의 순번을 가진 선택자를 찾을때를 통 틀어서 
+    가상 선택자 라고 한다. 
+    
+    이벤트 선택자 
+    a 태그에만 적용 가능한 이벤트 
+    :visited : 방문했던 링크 페이지에 대한 선택자 
+    :link : 방문 하지 않은 링크 페이지에 대한 선택자 
+
+    모든 태그에 들어가는 이벤트 선택자 
+    :hover = 마우스 over 이벤트 
+    :active = 마우스 click 이벤트 (눌려있는 상태 ,pressed 상태 )
+
+
+    :focus = 키보드 이벤트 (버튼 입력 링크)와 같은 상호작용을 발생시키는
+    태그에만 적용 할 수 있다. 
+    input , button,  a 
+
+    순번 선택자 
+    특정한 순번을 찾는 선택자 
+    :nth-child(n)  n은 순번을 의미하며, 특정 순번에 있는 선택자를 선택한다. 
+    특정 순번이 아닌 짝수와 홀수로 구분해서 지정할 수도 있다. 
+    순번은 1 부터 시작 
+    even :  짝수 
+    odd :  홀수 
+    숫자 뒤에 n이 붙는 경우, 숫자의 배수가 된다. 
+    4n은 = 4,8,12,16,20 .... 
+
+
+
+
+    */
+
+
+    a:visited {
+      color: aqua;
+    }
+
+    a:link {
+      color: blueviolet;
+    }
+
+    a {
+      color: brown;
+
+    }
+
+    .event01 {
+      width: 200px;
+      height: 100px;
+      background: coral;
+      transition: 500ms;
+    }
+
+    .event01:hover {
+      background: pink;
+    }
+
+    .event01:active {
+      background: plum;
+    }
+
+    .event01:focus {
+      color: blue;
+    }
+
+    a:focus {
+      color: blue;
+    }
+
+    input:focus {
+      color: gray;
+    }
+
+    .list {
+      padding: 12px;
+      background: gray;
+
+    }
+
+    .list li {
+      width: 200px;
+      height: 20px;
+      margin-bottom: 12px;
+      background: pink;
+    }
+
+    .list li:nth-child(odd) {
+      background: coral;
+    }
+
+    .list li:first-child {
+      background: brown;
+    }
+
+    .list li:last-child {
+      background: brown;
+    }
+
+    .list li:nth-child(4n) {
+      background: purple;
+    }
+
+    div:nth-of-type(2) {
+      background: lime;
+    }
+
+    /*
+    :nth-child(n) 의 특징은, 태그와 선택자와 관계없이 부모요소에서 해당하는
+    순번만 만족한다.  
+    즉 해당 순번에, 해당 태그가 아니라면 적용되지 않습니다. 
+
+    :nth-of-type(n) 부모요소를 기준으로 자식요소인 선택자 태그중에서만
+    순번을 찾는다 (순번과 type를 모두 만족 )
+    */
+  </style>
+</head>
+
+<body>
+  <a href="https://naver.com">클릭!!</a>
+  <a href="https://naver1.com">클릭!!</a>
+  <div class="event01">이벤트 태그</div>
+  <div class="event01">이벤트 태그</div>
+  <div class="event01">이벤트 태그</div>
+  <a href="#">링크태그입니다. </a>
+  <button>button입니다.</button>
+  <div class="event01">이벤트 태그</div>
+  <div class="event01">이벤트 태그</div>
+  <input class="text">
+
+  <ul class="list">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+</body>
+
+</html>

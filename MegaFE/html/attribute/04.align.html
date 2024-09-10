@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠 정렬 하는 방법</title>
+  <!--
+    컨텐츠 (영역 )정렬 하는 방법 
+    요즘은 flex로 정렬하는게 대부분이나, flex를 사용하지 못하는 버전에서는, 
+    flex를 사용하지 못하는 곳에서는 기존의 방법으로 대체해서 사용해야 합니다. 
+
+    1. inline-block 
+    개행 문자 (개행여백 )
+    태그와 태그 사이에 줄바꿈을 했을때, 공백처리를 하는 현상 
+    버그나, 에러가 아니라 인라인이 가지고 있는 특징이다. 
+    
+    inline은 줄바꿈을 하지 않는 하나의 컨텐츠 (내용)을 의미하고, block는 내용을 감싸는 틀 역할을 한다. 
+    inline-block은 inline의 특징과 block의 특징 모두를 가지고 왔기 때문에 개행문자가 생성 
+
+    해결방법: inline-block이 적용될 부모요소에 font-size 를 0으로 설정하는 방법 
+    자식요소에서 원하는 폰트 크기를 다시 설정하는 방법으로 해결한다 
+    
+    2. float 
+    float 속성은 객체를 따로 띄워서 정렬하는 속성이기 때문에, 부모 요소가 자식 요소의 높이 값을 받아오지 못하는 현상. 
+
+    부모요소에 높이 값을 지정하는 방법이 있지만. 불완전하고, 자식요소의 길이가 달라질 경우,
+    수동으로 변경해야 하기 때문에 잘 사용하지 못한다. 
+    부모 요소에 over flow : hidden 속성을 넣어주기 
+
+    원리 :
+    overflow 속성이 원래 넘치는 콘텐츠에 대한 처리 속성이지만. float 요소에서는 부동요소로 포함시키는 
+    방법으로 사용한다. 
+    bfc (block formatting context)라는 개념을 이용해서 내부의 모든 float 요소를 포함한 컨텐츠를 제대로 감싸게 되어,
+    부모요소가 자식 요소의 높이를 인식함. 
+
+    * bfc 
+    웹 페이지 레이아웃이 생성되는 개념 
+    특징
+    - 내부에 float 요소를 포함해서 컨텐츠를 감쌈. 
+    - 형제 요소와 겹치지 않음. 
+
+    - html 문서 자체에 생성이 먼저 된다. 
+    - 루트 (html태그)
+    - position 속성 absolute , fixed 
+    - display 속성이 inline - block , flex 로 설정된 요소 
+    - overflow 속성이 hidden 이나 auto 로 생성된 요소 
+
+  -->
+  <style>
+    .align01 {
+      width: 1000px;
+      /* height: 100px;  */
+      padding: 12px;
+      background: coral;
+      margin-bottom: 12px;
+      font-size: 0px;
+    }
+
+    .align01 .item {
+      width: 200px;
+      height: 50px;
+      background: pink;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .align02 {
+      width: 1000px;
+      background: gray;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .align02 .item {
+      width: 200px;
+      height: 70px;
+      background: lightgray;
+      float: left;
+    }
+
+    .box {
+      width: 1200px;
+      height: 500px;
+      background-color: coral;
+    }
+  </style>
+</head>
+
+<body>
+  <div class=align01>
+    <div class="item">it em</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div>
+
+  <div class="align02">
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+    <div class="item">item</div>
+  </div>
+
+  <div class="box">box</div>
+</body>
+
+</html>

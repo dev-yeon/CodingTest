@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자의 종류</title>
+    <!--
+        선택자의 종류 
+        * = 페이지 내의 모든 태그들을 지칭
+        페이지에 있는 모든 태그들을 순차적으로 스캔하기 때문에 과부하의 위험을 가지고 있다. 
+        예전에는 reset의 용도로 사용했는데, 지금은 잘 사용하지는 않는다. 
+
+        태그 선택자 =  태그 명만 넣어서 선택하는 기본 선택자 방법 
+        클래스 선택자 = 클래스 명만 넣어서 선택하는 방법 
+        아이디 선택자 = 아이디 명만 좋어서 선택하는 방법 
+
+        자손 선택자\
+            - 하위선택자 (자식, 자손 모두 포함) = 선택자 선택자 
+        ex) p span 
+            p 태그 안의 모든 span을 찾는다 .
+        - 자식 선택자 (자식만 포함, 자손은 포함하지 않음 ) = 선택자 > 선택자 
+        ex) p > span 
+
+        형제 선택자 \
+        형제 인접 선택자 =  선택자 + 선택자 
+        ex) div p + span : div안에 있는 p 태그 바로 옆에 있는 span 만 선택 
+
+        일반 형제 선택자 =  선택자 ~ 선택자 
+
+        선택자는 점수의 합산으로 선택자의 우선순위가  정해진다. 
+
+        id [100 점] <  class [10점]    < tag [1점] < * [0점] 
+    -->
+    <style>
+        * {
+            background-color: gray;
+        }
+
+        /* 형제 선택자 */
+
+        p {
+            background-color: coral;
+        }
+
+        p span {
+            /* 띄어쓰기는 자식과 자손 모두 포함한다. */
+            font-size: 30px;
+        }
+
+        p>span {
+            /*꺽쇠는 직계자식만 (자식o, 자손 x) 들어간다*/
+            font-size: 45px;
+            background-color: aquamarine;
+        }
+
+        /*형제 인접 선택자 = 선택자 + 선택자 */
+        div p+span {
+            background-color: brown;
+        }
+
+        div p~span {
+            background-color: blanchedalmond;
+        }
+
+        #header {
+            background-color: wheat;
+        }
+
+        div.content {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        부모
+        <span>
+            자식
+            <span>
+                자손
+            </span>
+        </span>
+    </p>
+    <div>
+        <p>p태그입니다.</p>
+        <span>span 태그입니다.</span>
+        <span>span 태그입니다.</span>
+        <div>div태그입니다.</div>
+        <span>span 태그입니다.</span>
+        <div>div태그입니다.</div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- 
+    1. 모든 span 태그 안에 font size :20 주기 
+    2. p 태그 안에 있는 모든 span 태그에 배경컬러 coral 주기 
+    3. p 태그 안에 있는 bgColor 에는 green 컬러 주기 
+    4. div 안에 있는 bgColor 엔 pink 컬러 주기 
+-->
+<style>
+    span {
+        font-size: 20px;
+    }
+
+    p span {
+        background-color: coral;
+    }
+
+    div p .bgColor {
+        /**/
+        background-color: green;
+    }
+
+    div .bgColor {
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>
+            <span>Lorem ipsum dolor sit amet.</span>
+            <span class="bgColor">Lorem ipsum dolor sit amet.</span>
+        </p>
+        <div class="bgColor">Lorem ipsum dolor sit amet.</div>
+    </div>
+
+</body>
+
+</html>

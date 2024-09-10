@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이블 속성</title>
+  <!--
+    label 태그 
+    form 여소 내에서 입력도구와 텍스트를 연결해주는 태그 
+    웹 표준과 웹 접근성을 준수하기 위해서는 기본적으로 lable 을 이용해서 작성하는 것이 좋습니다. 
+
+    <<<1. 명시적 작성 방식 >>>
+      - id 와 for 을 사용해서, label과 input을 연결 해주는 방식 
+      - 시인성이 좋다
+      -서로 떨어져 있어도 for과 id 로 연결되어 있어서  상관없다.
+
+    <<<2. 암시적 작성 방식 >>> 
+      - id 와 for 로 연결하는게 아닌, label 태그 안에 입력요소를 작성하는 방식 
+      - 작성법은 편하지만, 시인성은 떨어진다. 
+      - 오래된 기기나 버전에서는 암시적 작성 방식을 인식하지 못하는 경우가 있다. 
+  -->
+</head>
+
+<body>
+  <!-- 명시적 작성 방식 -->
+  <input name="check" value="checkbox" id="btn">
+  <p>텍스트</p>
+  <p>텍스트</p>
+  <p>텍스트</p>
+  <p>텍스트</p>
+  <p>텍스트</p>
+  <p>텍스트</p>
+
+  <label for="btn"> 동의</label>
+
+  <!-- 암시적 작성방식 -->
+  <label>
+    <input type="radio">체크
+  </label>
+
+</body>
+
+</html>

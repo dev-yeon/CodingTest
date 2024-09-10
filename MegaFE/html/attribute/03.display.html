@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스플레이 속성</title>
+    <!-- 
+        디스플레이 속성
+        요소들을 보여주는 방식에 대한 속성 
+        *display 속성으로 타입을 변경 할 수는 있지만
+        중요한 건 본질은 변하지 않는다. 
+        즉 span 에 block 속성을 준다고 해서 div와 같은 박스 역할을 수행 할 수는 없다.(예외 존재
+        inline- block : inline의 특성과 block의 특성을 모두 가지고 있는 혼합형 속성 
+        주로 컨텐츠를 좌우로 정렬할 때 사용하는 방법 중에 하나로 쓰임 . 
+        *요새는 플로트, flex를 사용하는데 나름 고사양 (caniuse 홈페이지에서 확인)
+        
+        none : 화면 상에서 출력하지 않음 
+        opacity 는 투명도만 관여하기 때문에 영역에 대한 정보는 출력되지만, none는
+        영역에 대해서는 관여하기 때문에 출력되지 않는다. 
+        
+        주로 스크립트 이벤트 속성과 함께 쓰이며, 다시 나오게 하려면 원래 속성을 다시 주면 된다. 
+        rgba = 배경컬러의 투명도 조절 
+        opacity = 컨텐츠 내용 포함한 투명도 조절 
+    -->
+    <style>
+        .inline {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            display: inline;
+        }
+
+        .block {
+            width: 300px;
+            height: 300px;
+            background-color: coral;
+            display: inline-block;
+            /* opacity: 0.5; */
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 100px;
+            /* 컨텐츠까지 전부 흐리게 하려면 opacity 
+                배경만 흐리게하고 싶으면 background-color: rgba(0, 0, 0, 0.5);
+
+            */
+        }
+
+        .parent {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            display: block;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+
+        .inlineBlock {
+            width: 300px;
+            height: 300px;
+            background-color: lightcoral;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inline">box</div>
+    <span class="block">box</span>
+    <div class="inlineBlock">box</div>
+
+    <span class="parent">
+        <!-- 아무것도 가질수 없지만 강제적으로 span에게 block속성을주고 만듦 , 구조적으로 옳게된 방법이 아니다. -->
+        <div class="child">child</div>
+    </span>
+</body>
+
+</html>

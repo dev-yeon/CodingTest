@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹폰트 제작하기</title>
+  <style>
+    /*
+    폰트 
+    구글 폰트 (무료, 한글/ 영문) = https://fonts.google.com/
+    눈누 폰트 (상업용, 한글) https://noonnu.cc/ 
+    dafont (외국 사이트, 폰트 종류가 많다. /무료/ 유료 ) https://www.dafont.com/ 
+
+    폰트 확장자 종류
+    ttf = 트루 타입 폰트
+    윈도우에서 가장 기본적으로 사용하는 폰트 확장자
+    웹에서는 압축률 문제가 있기 때문에 웹 전용은 아니다. 
+    -크롬, 사파리, 오페라, 익스 지원 
+
+    otf  - 오픈 타입 폰트 
+    ttf를 기반으로 하는 mac전용 오픈 타입 폰트 
+    - 크롬 , 사파리, 파폭 
+
+    eot : 엠베디드 오픈타입 폰트 
+    ms에서 자체적으로 만든 (익스 전용 )
+
+    woff, woff2 = 웹 오픈 포멧 폰트 
+    웹에서 사용하도록 만든 폰트 
+    압축률이나 구현율에서 웹에 가장 최적화된 폰트 
+    w3c 에서 권고하는 폰트 타입 
+    - 모든 브라우저 호환 (익스 하위 버전 6~8 버전)
+
+    woff2
+    woff에서 업그레이드 버전으로 압축률과 구현율 향상 
+    최신 브라우저만 지원하기 때문에 하위버전 호환하기 위해서는 woff를 사용 
+
+
+    svg = 그래픽과 아이콘에 사용하는 그래픽 타입
+    구버전 iOS에서 사용했지만, 용량이 제일 크고, 호환이 안되기 때문에 폰트로 사용하지 않는다 (권장하지않는다. )
+
+    https://transfonter.org/  여기서 변환 
+
+    */
+    @font-face {
+
+      font-family: 'PyeongChangPeace';
+      src: url('./font/PyeongChangPeace-BoldA1.woff') format('woff');
+      font-weight: 700;
+      /* bold weight */
+      font-style: normal;
+      /*
+      @ = 규칙을 정의 하겠다. (at-rules)
+      */
+      /* font-family: 'myFont'; */
+      /* 대소문자 구분 */
+      /* src: url('./font/PyeongChangPeace-Bold.otf'); */
+      /* eot - ie 버전 호환된*/
+      /* src: url('./font/PyeongChangPeace-Bold.otf#iefix') */
+      /* eot - ie 버전 호환된*/
+      /* format("embedded-opentype"),
+        url('./font/PyeongChangPeace-Bold.otf#iefix') format ('woff'); */
+      /*최신버전*/
+
+      /*format을 작성하는 이유는 이 형식을 지원하는 브라우저 에서만 인식해서 다운 받을 수 있도록 한다
+      포멧이 없으면 모든 확장자을 다 다운받는게 기본 명세이기 때문 
+      
+      연결할 파일이 하나일 경우, 생격해도 된다. 
+      
+      추가적으로 굵기 (weigtht) , 크기 (size)
+      
+      */
+
+    }
+
+    p {
+      font-family: "PyeongChangPeace", sans-serif;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <p> 안녕하세요~~~~~~~~~~~~~~~~~~~~~~!!!!
+  </p>
+  <p>Lorem ipsum dolor sit amet consectetur.</p>
+</body>
+
+</html>

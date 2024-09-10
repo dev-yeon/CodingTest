@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>애니메이션 속성</title>
+  <style>
+    /*
+     애니메이션
+     html 요소에서 적용되는 모든 css를 다른 css로 제어해서 부드럽게 전환되는 효과를 준다. 
+     transition 과 유사한 환경과 로직을 가지고 있지만, 세부적인 컨트롤, 단독적인 실행을 가능하게 한다. 
+     
+     transition 이 단순한 요소의 변화가 목적이라면
+     애니메이션은 속성하나에 스토리(프레임, 시퀀스)를 구성해서 
+     스토리 내부에서 세부적인 움직임을 css 를 통해서 제어 할 수 있다. 
+
+     transition : 이벤트에서만 적용, 간단한 변환
+     animation : 즉시 실행, 복잡한 전환 효과가 필요할 때 
+
+     속성들 
+     - name (필수)
+     @keyframes에 연결되는 가장 중요한 속성
+     네이밍은 임의대로 작성하되 목적에 맞는 네이밍이 좋다. 
+
+     - duration (필수)
+     진행시간 (ms, s)
+
+     -iteramtion-count (선택): 반복횟수 
+     기본값은 1회, 지정된 숫자만큼 반복 실행 
+     무한반복을 위해 유의미한 99999999 와 같은 숫자보다는 infinate 로 설정하는것이 좋다. 
+
+     -direction (선택) : 반복중일때 진행 방향 속성 
+     normal : 기본값 0% 시작, 100% 종료 
+     reverse : 100% 시작 0% 종료 
+     alternate : 홀수 (normal )짝수
+
+    */
+
+    div {
+      width: 100px;
+      height: 100px;
+      animation-name: box-ani;
+      background: pink;
+      margin-bottom: 10px;
+      animation-duration: 1000ms;
+
+    }
+
+    .box {
+
+      /* name은 임의대로 작성해도 된다. */
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+
+    .box02 {
+      /* animation-iteration-count: infinite;
+      animation-direction: alternate-reverse; */
+    }
+
+    .box03 {
+      /* animation-iteration-count: infinite;
+      animation-direction: reverse; */
+      animation-timing-function: ease-out;
+    }
+
+
+    .box04 {
+      /* animation-iteration-count: infinite;
+      animation-direction: reverse; */
+      animation-timing-function: ease-in-out;
+    }
+
+    .box05 {
+      /* animation-iteration-count: infinite;
+      animation-direction: reverse; */
+      animation-timing-function: linear;
+    }
+
+    .box06 {
+      /* animation-iteration-count: infinite;
+      animation-direction: reverse; */
+      animation: box-ani 500ms 0ms alternate infinite ease normal;
+    }
+
+    .box:hover {
+      animation-play-state: running;
+    }
+
+    @keyframes box-ani {
+      0% {
+        background-color: cyan;
+      }
+
+      100% {
+        background-color: coral;
+        width: 200px;
+
+
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">box</div>
+  <div class="box02">box</div>
+  <div class="box03">box</div>
+  <div class="box04">box</div>
+  <div class="box05">box</div>
+  <div class="box06">box</div>
+
+</body>
+
+</html>

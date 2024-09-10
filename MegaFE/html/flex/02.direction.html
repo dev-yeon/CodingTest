@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    /*
+  flex가 적용 되면, 정렬 방향에 따라서 메인축과 상대축으로 나눠짐. 
+  컨텐츠가 정렬되는 방향 ->메인 축 
+  반대 -> 상대 축 
+  ex) direction : row (가로축) -> 메인축 , 상대축 (column)
+
+
+    */
+
+    .container {
+      /*
+      flex 가 적용되어 있는 item 들은, 영역을 초과하는 사이즈가 되어도, 영역을 줄이기만 할 뿐, 아래로 떨어지지 않는다. ( 줄 바꿈을 하지 않고, 영역이 더이상 줄이기를 못하면 영역을 벗어난다.)
+      
+      nowrap: 줄바꿈 처리 하지 않음(기본값) 
+      wrap :  줄바꿈 처리 
+      wrap-reverse : 줄바꿈 하지만 아래로 떨어지지 않고 반대로 올라감, 
+      위에서.. 아래로 -> 아래에서 위로 
+      
+      flex-flow :  정렬 방향에 대한 그룹 속성 (derection, wrap의 그룹속성, 2가지만 관여함 )
+      순서는 direction, wrap 순서로 적용.
+      값이 없으면 기본값으로 적용 
+
+      */
+
+      display: flex;
+      /* flex-wrap: wrap; */
+      flex-flow: wrap;
+      /* flex-direction: row-reverse */
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+    <div class="item">Lorem.</div>
+    <div class="item">Lorem, ipsum.</div>
+    <div class="item">Lorem, ipsum dolor.</div>
+  </div>
+
+</body>
+
+</html>

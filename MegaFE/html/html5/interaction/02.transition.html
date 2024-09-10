@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition</title>
+  <style>
+    /*
+     trantion 
+     특정 행동(이벤트)를 취했을때 변화되는 요소가 전환되는 시간적인 효과를 보여주는 속성
+
+     -property 
+     전환되는 대상이 되는 속성 (background , width ...) 
+     property 를 생략하게 되면 기본값인 all이 적용 (생략가능)
+
+     - duration  전환되는 시간 (생략 할 수 없는 값)
+     단위는 s, ms
+     1s = 1초 
+     1000ms  = 1초 
+
+     - delay : 이벤트가 시작되고 나서 전환되기 까지의 지연 시간 
+     단위 s, ms 기본값은 0 생략가능
+
+     -timing -funtion (시간 함수)
+      전환되는 시간동안 시간적인 효과를 주기위한 속성 
+
+      -linear : 처음부터 끝까지 일정한 속도 
+      - ease :   느리게 시작 -> 빠르게 진행 -> 느리게 종료 (기본값)
+      - ease-in :   느리게 시작해서 빠르게 가속하면서 종료 
+      - ease-out : 빠르게 시작해서 감속하면서 종료 
+      - ease-in-out : ease-in 과 같지만 변환 속도가 빠름 
+
+      그룹 속성 
+      transtion : property (선택) duration (필수) delay(선택) timing (선택)
+      duration 을 제외한 나머지 속성은 생략해도 된다. 
+      다른 속성들은 순서를 
+
+     */
+    .box {
+      width: 100px;
+      height: 50px;
+      background-color: pink;
+      transition-property: background;
+      transition-duration: 500ms;
+      transition-delay: 1000ms;
+      transition-timing-function: ease-in;
+      transition: 500ms;
+    }
+
+    .box:hover {
+      background: coral;
+      width: 200px;
+      transform: rotate(360deg);
+      left: 100px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">box</div>
+</body>
+
+</html>

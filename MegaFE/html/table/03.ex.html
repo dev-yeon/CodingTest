@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판 실습</title>
+
+  <style>
+    /*reset*/
+    body,
+    table,
+    html,
+    form,
+    input,
+    select,
+    tr,
+    th,
+    td,
+    caption,
+    p,
+    span,
+    div {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table {
+      border-spacing: 0px;
+      border-collapse: collapse;
+      font-size: 0px;
+    }
+
+    .container {
+      width: 1170px;
+      margin: 100px auto;
+      /*위 아래로 100px 띄우고, 양옆 정렬 */
+    }
+
+    .titleBox {
+      border-bottom: solid 2px #333333;
+      padding-bottom: 12px;
+      margin-bottom: 48px;
+    }
+
+    .title {
+      /* font-size: 24px; */
+      /* font-weight: bold; */
+      margin-bottom: 12px;
+      font: bold 24px '돋움';
+
+
+      /*
+      font 그룹 속성 
+      font : 굵기 (weight) 사이즈 (size) 글꼴 (family)
+      font : 굵기 (weight) 사이즈 (size) / 행간 (loine-height) 글꼴 (family)
+      필요한 값만 넣을 수 있는데, 한 개의 값만은 사용 할 수 없다.  최소 2개, 굵기와 사이즈 정도 
+      font : 24 px  --> 문법 에러 
+      font : bold 24px 최소 2 개의 값 (size, familly) 를 권고 
+
+      */
+    }
+
+    .text {
+      font: normal 14px '돋움';
+    }
+
+    tr {
+      border-bottom: solid 1px #bbbbbb;
+      height: 100px;
+    }
+
+    th {
+      width: 160px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: normal;
+
+    }
+
+    label {
+      width: 100%;
+      display: block;
+      /*label 은 inline 속성이다. */
+    }
+
+    .star {
+      color: blue;
+      font-weight: bold;
+    }
+
+    .text-w360 {
+      width: 360px;
+      height: 56px;
+      box-sizing: border-box;
+      padding: 0px 24px;
+    }
+
+    .th-p130 {
+      padding-left: 130px;
+      /*table 속성에서는 margin 으로 여백을 설정할 수 없다. (table의 성격 때문) */
+    }
+
+    input[type=button] {
+      width: 117px;
+      height: 56px;
+      border: none;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: navy;
+      color: white;
+      margin-right: 36px;
+    }
+
+    .auth-btn {
+      color: #dddddd;
+      background: gray;
+    }
+
+    .text-w304 {
+      width: 304px;
+      height: 56px;
+      box-sizing: border-box;
+      padding: 0px 24px;
+    }
+
+    .sigungu {
+      margin: 0px 49px;
+    }
+
+    .radio-label {
+      font-size: 14px;
+      display: inline-block;
+      width: auto;
+      /*auto는 기본 값: 원래 크기 */
+      margin: 0px 50px 0px 7px;
+    }
+
+    input[type=radio] {
+      width: 24px;
+      height: 24px;
+      vertical-align: bottom;
+    }
+
+    /*
+    vertical-align : 수직 정렬 요소 
+    인라인과 테이블 요소에서만 적용,
+    정해진 값들을 베이스 라인 기준으로 정렬 
+    */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="titleBox">
+      <p class="title">개인정보 입력</p>
+      <p class="text">일부 전시장 에서는 만 26세 이상만 운전자 시승이 가능하며, 만 26세 이하 고객께서는 동승석 탑승으로 시승이 제한 될 수 있습니다.
+      </p>
+      <form action="" method="post"> <!-- 테이블 태그 는 자식으로 정해진것만 올 수 있지만, form은 정해진게 없다. -->
+        <table>
+          <tr>
+            <th>
+              <label for="user-name">
+                신청자 성명
+                <span class="star">*</span>
+              </label>
+            </th>
+
+            <td>
+              <input type="text" id="user-name" name="userName" placeholder="이름을 입력 하세요." required class="text-w360">
+            </td>
+          </tr><!-- 1번 째 행 -->
+
+          <tr>
+            <th>
+              <label for="user-car">
+                현재보유 차량모델
+              </label>
+            </th>
+            <td>
+              <input type="text" id="user-car" name="userCar" placeholder="보유 차량을 입력해주세요" class="text-w360">
+            </td>
+            <th class="th-p130">
+              출생년도
+              <span class="star">*</span>
+            </th>
+            <td>
+              <select name="userBirth" Class="text-w360">
+                <option value="1980">1980</option>
+                <option value="1981">1981</option>
+                <option value="1982">1982</option>
+                <option value="1983">1983</option>
+                <option value="1984">1984</option>
+                <option value="1985">1985</option>
+
+              </select>
+            </td>
+          </tr><!-- 2번째 행-->
+
+          <tr>
+            <th>
+              <label for="user-call-number">
+                연락처
+                <span class="star">*</span>
+              </label>
+            </th>
+            <td colspan="3">
+              <input type="text" id="user-call-number" name="userCallNumber" placeholder="'-'없이 입력해주세요"
+                class="text-w360" required>
+              <input type="button" class="submit-btn" value="인증번호 받기">
+              <input type="text" name="userAuth" placeholder="인증번호 입력" class="text-w360" required>
+              <input type="button" class="auth-btn" value="확인">
+
+            </td>
+          </tr><!-- 3번째 행-->
+          <tr>
+            <th>전시장 선택
+              <span class="star">*</span>
+            </th>
+            <td colspan="3">
+              <input type="text" placeholder="지역" class="text-w304" name="userLocal01" required>
+              <input type="text" placeholder="시/군/구" class="text-w304 sigungu" name="userLocal02" required>
+              <input type="text" placeholder="전시장" class="text-w304" name="userLocal03" required>
+            </td>
+
+          </tr><!-- 4번째 행-->
+          <tr>
+            <th>
+              <label for="3month">
+                구매시기
+                <span class="star">*</span>
+              </label>
+            </th>
+            <td colspan="3">
+              <input type="radio" name="buy" id="3month" value="3m" checked>
+              <label for="3month" class="radio-label">3개월 이내</label>
+
+              <input type="radio" name="buy" id="6month" value="6m">
+              <label for="6month" class="radio-label">6개월 이내</label>
+
+              <input type="radio" name="buy" id="1years" value="1y">
+              <label for="1years" class="radio-label">1년 이내</label>
+
+              <input type="radio" name="buy" id="2years" value="2y">
+              <label for="2years" class="radio-label">2년 이내</label>
+
+              <input type="radio" name="buy" id="no-buy" value="no">
+              <label for="no-buy" class="radio-label">계획 없음</label>
+
+
+            </td>
+          </tr><!-- 5번째 행-->
+
+          <tr>
+            <th>
+              <label for="user-date">
+                시승/상담 희망일
+                <span class="star">*</span>
+              </label>
+
+            </th>
+            <td colspan="3">
+              <input type="date" id="user-date" name="userDate" class="text-w360">
+            </td>
+
+          </tr><!-- 6번째 행-->
+
+        </table>
+      </form>
+    </div><!--titleBox-->
+  </div><!--container-->
+
+</body>
+
+</html>

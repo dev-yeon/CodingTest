@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    생성자 함수 이용해서 
+    학생을 새로 생성한 다음에 국어, 영어 , 수학 점수의 평균을 구해서
+    document.write 로 출력 
+    ex) 홍길동 학생의 평균점수는 62 점입니다. 
+    
+    */
+
+    function Student(name, kor, eng, mat) {
+      this.name = name,
+        this.kor = kor,
+        this.eng = eng,
+        this.mat = mat,
+        this.average = function () {
+          return (this.kor + this.eng + this.mat) / 3;
+        };
+    }
+
+    //새로운 학생
+    let student1 = new Student('홍길동', 100, 65, 66);
+
+    //새로운 학생 출력
+    let avg = student1.average();
+    document.write(student1.name + '학생의 평균 점수는' + avg.toFixed(2) + ' 점 입니다.');
+
+    
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

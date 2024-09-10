@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ballMoving1</title>
+
+	<style>
+		body {
+			font-size: 9pt;
+		}
+
+		#wrap {
+			width: 600px;
+			height: 400px;
+			position: absolute;
+			left: 50%;
+			margin-left: -300px;
+			top: 200px;
+		}
+
+		#panel {
+			width: 600px;
+			height: 300px;
+			border: 1px solid #999;
+			position: relative;
+			margin-bottom: 30px;
+		}
+
+		#bar {
+			position: absolute;
+			left: 50px;
+			top: 190px;
+			width: 500px;
+			height: 20px;
+			z-index: 10;
+
+			border-top: dotted 1px #999;
+		}
+
+		#ball {
+			position: absolute;
+			left: 50px;
+			top: 105px;
+			width: 80px;
+			height: 80px;
+
+		}
+
+		#nav {
+			text-align: center;
+			width: 600px;
+		}
+	</style>
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js'></script>
+	<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+
+	<script>
+		/*
+		1. 시작 버튼을 누르면 공이 이동
+		2. 이동 거리는 bar의 길이 만큼만 이동 
+		3. bar의 끝에 오게 되면 다시 반대로 이동.
+		
+		4. 위 행동을 반복 
+		5. 정지 버튼을 누르면 멈췄다가 시작 버튼을 누르면 정지 위치에서 다시 시작 
+	
+		6. setinterval 으로만 표현 
+	
+		*/
+
+		$(document).ready(function () {
+			let ball = $('#ball');  //움직일 객체
+			let bar = $('#bar'); // 움직일 영역의 크기를 가져올 객체 
+
+			let startStep = ball.position().left //  공이 처음에 출발할 위치 
+			let endStep = bar.innerWidth() + (startStep - ball.innerWidth())
+			console.log(startStep);
+
+			let step = 5; // 한번에 움직일 거리 
+			let currentStep = startStep
+			let timer;
+			/*
+			
+			end 값을 구할때 ball.innerWidth()/2 가 아닌 (startStep - ball.innerWidth()) 인 이유 
+			bar.innerWidth() 는 bar의 전체 길이를 의미하며, 공의 왼쪽 끝이 바의 오른쪽 끝에 도달하기 위해서는
+			보통적으로 공의 innerWidth를 빼면 되지만. 
+			*/
+
+			$('#start_btn').on('click', onStart);
+			$('#stop_btn').on('click', onStop);
+
+			function onStart() {
+				onStop(); // 이벤트가 중첩되지 않도록 . 
+				timer = setInterval(ballMoving, 20);
+			}
+			function ballMoving() {
+				currentStep += step
+				console.log(currentStep);
+				ball.css({ 'left': currentStep, 'transform': 'rotate(' + currentStep + 'deg)' })
+				if (currentStep >= endStep) {
+					step = -5
+				} else if (currentStep <= startStep) {
+					step = 5;
+				}
+			}
+
+			function onStop() {
+				//궁극적으로 setInterval을 멈춰야 함
+
+				clearInterval(timer);
+
+			}
+
+		})
+
+	</script>
+
+
+</head>
+
+<body>
+
+	<div id="wrap">
+		<div id="panel">
+			<div id="bar"> </div>
+			<div id="ball">
+				<img src="images/ball.png">
+			</div>
+		</div>
+		<div id="nav">
+			<button id="start_btn">시작</button>
+			<button id="stop_btn">멈춤</button>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>

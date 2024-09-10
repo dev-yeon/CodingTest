@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    이벤트 
+    1. 이벤트 적용 방법 
+    - 인라인 이벤트 
+    <태그명 on이벤트 명  = '속성'></태그명>
+    ex) <p onclick = 'this.style.color="red"'>text</p>
+    인라인 이벤트 방식은 구조가 복잡해지고, 관리가 어려워 지는 단점이 있어서, 현재 권장하는 방법은 아니다. 
+    옛날 코드에서 아직 사용하고는 있지만, 가급적으로 html 과 script 영역을 분리해서 사용하는 것이 가장 좋다. 
+
+    * 예외로 보는 경우 
+    CBD(component base develop) 기반의 라이브러리 (react, vue) 에서는 인라인 이벤트를 예외로 사용한다. 
+    
+    - 직접 이벤트 방식
+    스크립트 문서에서 분리해서 작성하는 방식
+    - 선택자.on이벤트 =  function() {코드 블럭}
+    - 선택자.addEventListener ('이벤트 명', function(){ 코드 블럭 })
+    
+    차이점은 on이벤트 명은 이벤트를 중첩해서 실행시킬 수 없다. 
+    addEventListener 는 여러개의 이벤트를 중첩 실행 할 수 있다. 
+
+    스크립트에서는 addEventListener 를 자주 사용 
+    리액트에서는 on 이벤트 명을 사용 
+
+    이벤트 종류 
+    1. 마우스 이벤트 
+    - click = 클릭 이벤트 
+    - mouseover = 마우스를 올렸을때, 
+    - mousedown = 마우스 버튼을 누르고 있는 상태 
+    - mouseup = 마우스 버튼을 뗐을 때. 
+    - mousemove = 마우스가 움직이는 이벤트 
+
+    - scroll = 마우스 휠을 굴렸을때 스크롤바가 이동되는 값을 반환하는 이벤트 
+    - mousewheel : 마우스 휠을 사용 여부를 반환하는 이벤트 (기존에는 브라우저 마다 반환되는 값이 달라서 mousewheel 이벤트보다 wheel 이벤트로 통일, mousewheel 을 사용하지 않음 )
+
+    2. 키보드 이벤트 
+    - focus : tab키로 이동 했을때, 
+    - focusin , out 
+    - keydown : 특정 키를 눌렀을때 
+    - keyup : 특정 키를 눌렀다가 뗐을때. 
+    - keypress : 키를 누르고 있는 상태 (잘 사용하지는 않음. )
+    - 키보드 이벤트를 사용할 때에는 키 코드 값을 찾아서 입력해야 한다. 
+
+    3. 그 외에 이벤트 
+    - onload = 로딩관련 이벤트 
+    - resize : 반응형 관련 이벤트 ( 윈도우 사이즈를 변경할 때 사용)
+
+
+  */
+
+    window.onload = function () {
+      let text = document.querySelector('.text');
+
+      // text.onClick = function () {
+      //   console.log('111');
+      // }
+
+      text.addEventListener('click', function () {
+        console.log('111');
+      })
+      text.addEventListener('click', function () {
+        console.log('222');
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <p onclick="this.style.color='red'">text</p>
+
+  <p onmouseover="this.style.color='red'">text</p>
+
+  <p class="text">Lorem ipsum dolor sit amet consectetur.</p>
+</body>
+
+</html>

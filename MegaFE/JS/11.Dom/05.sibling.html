@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>형제 요소 참조</title>
+  <script>
+
+    /*
+
+    sibling
+    선택자를 기준으로 부모나 자식요소가 아닌
+    인접한 위에나 아래 있는 인접 요소를 찾는 선택자 메서드. 
+
+
+    */
+
+    window.onload = function () {
+      let me = document.querySelector('.child03');
+      let prev = me.previousElementSibling; //node를 제외하고 탐색 
+      let prev02 = me.previousSibling; //node를 포함하여 탐색  
+
+      let next = me.nextElementSibling;
+
+      console.log(prev)
+      console.log(prev02)
+      console.log(next)
+    }
+  </script>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="child01">child01</div>
+    <div class="child02">child02</div>
+    <div class="child03">child03</div>
+    <div class="child04">child04</div>
+    <div class="child05">child05</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      setDate();
+      countDown("2024/08/07 20:39:59");
+
+    }
+
+    function setDate() {
+
+      setInterval(() => {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();// 현재년도
+        const currentMonth = currentDate.getMonth() + 1; //월
+        const currentDay = currentDate.getDate(); //일
+        const currentH = currentDate.getHours(); //시
+        const currentM = currentDate.getUTCMinutes(); // 분
+        const currentS = currentDate.getSeconds(); // 초
+
+        const result = `현재 시간은 : ${currentYear}년도
+      ${String(currentMonth).padStart(2, '0')}월
+      ${String(currentDay).padStart(2, '0')}일
+      ${String(currentH).padStart(2, '0')}시
+      ${String(currentM).padStart(2, '0')}분
+      ${String(currentS).padStart(2, '0')}초 입니다.
+      `
+        document.querySelector('.date').textContent = result
+      }, 1000)
+    }
+
+    function countDown(dday) {
+
+      const countDate = new Date(dday).getTime();
+      console.log(countDate);
+
+      const second = 1000;
+      const min = second * 60;
+      const hour = min * 60;
+      const day = hour * 24;
+
+      const timer = setInterval(() => {
+        const nowTime = new Date().getTime();
+        const dis = countDate - nowTime;
+
+        let disD = Math.floor(dis / day);
+        let disH = Math.floor((dis % day) / hour);
+        let disM = Math.floor((dis % hour) / min);
+        let disS = Math.floor((dis % min) / second);
+
+        if (disD < 0) {
+
+          disD = 0;
+          disH = 0;
+          disM = 0;
+          disS = 0;
+          clearInterval(timer);
+        }
+
+        document.querySelector('.day').textContent = disD;
+        document.querySelector('.hour').textContent = disH;
+        document.querySelector('.min').textContent = disM;
+        document.querySelector('.sec').textContent = disS;
+      }, 1000)
+
+    }
+
+    // padStart (설정한 글자 수, 출력할 글자)
+    // 문자열의 시작 부분을 다른 문자열로 채워줘서 길이를 만족하게 해주는 메서드
+    // 문자열을 만족하는 메서드이기 때문에 숫자열은 문자열로 변환해주는 작업 필요 
+  </script>
+</head>
+
+<body>
+  <p class="date"></p>
+  <span class="day"></span>
+  <span class="hour"></span>
+  <span class="min"></span>
+  <span class="sec"></span>
+</body>
+
+</html>

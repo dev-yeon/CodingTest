@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반복문으로 구구단 작성</title>
+  <script>
+    /*
+    1. 2-9 단 까지 구구단으로 작성하기 
+    2. 중첩 for 문을 이용해서 새로운 단이 시작하면 1~9까지 곱하기 
+    3. document.write 로 출력 
+    */
+    let list = '<ul>'
+    for (let i = 2; i <= 9; i++) {
+      document.write('<div>' + i + '단<br><ul>');
+      for (let j = 1; j <= 9; j++) {
+        document.write('<li>' + i + '*' + j + '=' + (i * j) + '</li>');
+
+      }
+      document.write('</ul></div><br>')
+    }
+
+  </script>
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0px;
+    }
+
+    li {
+      margin: 2px 0px
+    }
+  </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

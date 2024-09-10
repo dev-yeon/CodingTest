@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ballMoving2</title>
+
+  <style>
+    body {
+      font-size: 9pt;
+    }
+
+    #wrap {
+      width: 600px;
+      height: 500px;
+      position: absolute;
+      left: 50%;
+      margin-left: -300px;
+      top: 200px;
+    }
+
+    #panel {
+      width: 600px;
+      height: 400px;
+      border: 5px solid #999;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    #ball {
+      position: absolute;
+      left: 252px;
+      top: 150px;
+      width: 80px;
+      height: 80px;
+    }
+
+    #nav {
+      text-align: center;
+      width: 600px;
+    }
+  </style>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js'></script>
+  <!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+
+
+  <script>
+
+
+    /*
+    공은 x축과 y축으로 동시에 움직입니다. 벽(border)에 닿을 경우 반대로 튕겨져 나가야 합니다.
+    기존의 방식에서 y축의 추가와 시작위치의 기준이 달라집니다.
+    
+    */
+
+    $(document).ready(function () {
+      let ball = $('#ball');
+      let panel = $('#panel');
+
+      let startX = ball.position().left
+      // 공이 처음에 출발할 X축
+      let startY = ball.position().top
+      // 공이 처음에 출발할 Y축
+
+      let panelWidth = panel.innerWidth();
+      let panelHeight = panel.innerHeight();
+
+      let ballWidth = ball.innerWidth();
+      let ballHeight = ball.innerHeight();
+
+
+      let stepX = 5; // X축으로 움직일 거리
+      let stepY = 5; // Y축으로 움직일 거리
+
+      let currentX = startX; //공의 현재 X축 위치
+      let currentY = startY; //공의 현재 Y축 위치
+
+      let timer;
+      $('#start_btn').on('click', onStart);
+      $('#stop_btn').on('click', onStop);
+
+
+      function onStart() {
+        onStop(); // 중복 타이머 방지 기존 타이머 중지
+        timer = setInterval(ballMoving, 20);
+
+      }
+
+      function ballMoving() {
+        currentX += stepX;
+        currentY += stepY;
+
+        // X축 방향에서, 벽에 닿은 경우 반대로 
+        // 공이 X축의 오른쪽 또는 왼쪽 벽에 닿았을 때 반대 방향으로 이동
+        if (currentX >= (panelWidth - ballWidth) || currentX <= 0) {
+          stepX = -stepX;// X축 이동 방향 반전 
+        }
+
+        // if (currentX >= (panelWidth - ballWidth)) {
+        //   stepX = -stepX;// X축 이동 방향 반전 
+        // }
+        // 공이 Y축의 아래쪽 또는 위쪽 벽에 닿았을 때 반대 방향으로 이동
+        if (currentY >= (panelHeight - ballHeight) || currentY <= 0) {
+          stepY = -stepY;
+        }
+        // 공의 위치와 회전 CSS
+        ball.css({ 'left': currentX, 'top': currentY, 'transform': 'rotate(' + (currentX + currentY) + 'deg)' });
+      }
+      function onStop() {
+        clearInterval(timer);
+      }
+    })
+
+
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <div id="wrap">
+
+    <div id="panel">
+      <div id="ball">
+        <img src="images/ball.png">
+      </div>
+    </div>
+    <div id="nav">
+      <button id="start_btn">시작</button>
+      <button id="stop_btn">멈춤</button>
+    </div>
+
+  </div>
+
+
+
+
+</body>
+
+</html>

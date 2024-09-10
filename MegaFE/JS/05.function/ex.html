@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    점수 계산하기 
+    점수 계산하는 함수를 작성 (function)
+    3개의 점수를 매개변수로 받아와서 3개의 점수를 평균내서 학점으로 출력 
+    평균이 90점보다 크거나 같으면 a
+    평균이 80점보다 크거나 같으면 b
+    평균이 70점보다 크거나 같으면 c
+    평균이 60점보다 크거나 같으면 d 
+    그 이하 모두 f
+    */
+
+    function calculateGrade(score1, score2, score3) {
+      // 세 점수의 평균을 계산 
+      const average = (score1 + score2 + score3) / 3;
+
+      // 평균에 따라 학점을 결정 
+      let grade;
+      if (average >= 90) {
+        grade = 'a';
+
+      } else if (average >= 80) {
+        grade = 'b';
+      } else if (average >= 70) {
+        grade = 'c';
+      } else if (average >= 60) {
+        grade = 'd';
+      } else {
+        grade = 'f';
+      }
+      // 결과를 반환
+      return `평균 점수: ${average.toFixed(2)}, 학점: ${grade}`;
+    }
+
+    // 점수를 입력받아 함수 호출 및 결과 출력
+    function getScoresAndCalculateGrade() {
+      const score1 = parseInt(prompt('첫 번째 점수를 입력하세요.'));
+      document.write(`첫 번째 점수: ${score1}<br>`);
+
+      const score2 = parseInt(prompt('두 번째 점수를 입력하세요.'));
+      document.write(`두 번째 점수: ${score2}<br>`);
+
+      const score3 = parseInt(prompt('세 번째 점수를 입력하세요.'));
+      document.write(`세 번째 점수: ${score3}<br>`);
+
+      const result = calculateGrade(score1, score2, score3);
+      document.write(`<br>${result}`);
+    }
+
+    // 페이지 로드 시 함수 호출
+    window.onload = getScoresAndCalculateGrade;
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

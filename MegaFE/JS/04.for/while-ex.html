@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let id = 'magait';
+    let pw = '1234';
+    let isLogin = false;
+
+    //case if & for
+    // for (let i = 0; i < 5; i++) {
+    //   let tId = prompt('id 입력:');
+    //   let tPw = prompt('pw 입력:');
+
+    //   if (tId === id && tPw === pw) {
+    //     document.write('login sucess')
+    //     break;
+    //   } else {
+    //     document.write('login fail')
+    //   }
+    // } 
+
+    while (!isLogin) {
+      let tId = prompt('아이디');
+      let tPw = prompt('패스워드');
+
+      if (tId === id && tPw === pw) {
+        isLogin = true;
+        document.write('로그인 성공');
+        break;
+      } else {
+        document.write('아이디나 비밀번호가 틀립니다. ')
+      }
+    } if (isLogin) {
+      document.write('로그인 성공')
+    }
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

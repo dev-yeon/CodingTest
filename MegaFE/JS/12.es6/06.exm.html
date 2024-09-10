@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>점수계산</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+
+    .student-result {
+      margin-bottom: 100px;
+    }
+  </style>
+  <script>
+    /*
+    점수 계산 로직 만들기  클래스와 상속의 문법을 쓰도록 하기. 
+
+    1. 학생마다 국어점수와 영어점수를 더해서 출력하는 클래스 생성 
+    * 점수는 임의대로 생성 
+    
+    2. 새로운 과목은 수학을 추가 (상속)
+    3. 수학 점수가 추가되는 학생은 , 총 합의 평균 까지 구하기. 
+    4. 1번과 3번의 result를 출력하세요. (값까지.) 
+    
+    */
+
+    //학생을 위한 클래스
+
+    class Student {
+      constructor(name, korean, english) {
+        this.name = name;
+        this.korean = korean;
+        this.english = english;
+      }
+
+      // 국어, 영어 총합을 계산하는 메서드 
+      getKorEngSumScore() {
+        return this.korean + this.english;
+      }
+
+      // 결과 출력 
+      displayResult() {
+        return `
+        <div class="student-result">
+          <p>학생 이름 : ${this.name}</p>
+          <p>국어 점수 : ${this.korean}</p>
+          <p>영어 점수 : ${this.english}</p>
+          <p>총 점 : ${this.getKorEngSumScore()}</p>
+          </div>
+        `;
+      }
+    }
+    //수학 점수를 포함하는 MathStudent 서브 클래스
+    class MathStudent extends Student {
+      constructor(name, korean, english, math) {
+        super(name, korean, english);
+        this.math = math;
+      }
+      // 수학점수 포함해 총점 계산
+      getTotalScore() {
+        return super.getKorEngSumScore() + this.math;
+      }
+
+      //평균 계산
+      getAverageScore() {
+        return this.getTotalScore() / 3;
+      }
+
+      //수학점수와 평균 점수를 포함한 결과를 출력하는 메서드 
+      displayResult() {
+        return `
+        ${super.displayResult()}
+        <div>
+          <p>수학 점수 : ${this.math}</p>
+          <p>평균 점수 : ${this.getAverageScore().toFixed(2)}</p>
+        </div>
+        `;
+      }
+    }
+
+    //인스턴스 생성, 결과 출력
+    window.onload = function () {
+      const students = [
+        new Student('김씨', 100, 90),
+        new Student('이씨', 75, 100),
+        new Student('박씨', 95, 95),
+        new Student('최씨', 95, 90),
+        new MathStudent('오씨', 85, 60, 100),
+        new MathStudent('윤씨', 75, 90, 90),
+        new MathStudent('임씨', 75, 100, 100),
+        new MathStudent('조씨', 95, 80, 90)
+
+      ]
+
+      //학생 결과를 html 에 추가 
+      students.forEach(student => {
+        document.body.innerHTML += student.displayResult();
+      });
+    }
+
+
+  </script>
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>

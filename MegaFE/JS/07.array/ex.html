@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    학생들의 이름과 점수를 입력받아, 각 학생의 성적을 "A", "B", "C", "D", "F"로 분류하고, 
+    각 등급에 속하는 학생들의 명단을 출력하는 함수를 만드세요
+
+    객체와 반복문 조건문, 배열관리 명령어, 을 사용합니다.
+
+    1.학생들의 이름과 점수를 객체 형태로 관리
+    
+    2. 
+    -90점 이상: "A"
+    -80점 이상 90점 미만: "B"
+    -70점 이상 80점 미만: "C"
+    -60점 이상 70점 미만: "D"
+    -나머지 "F"
+
+    3.각 성적 등급별로 학생 이름을 출력
+
+
+    
+    */
+
+    // 학생 성적 
+    var students = {
+      "kim": 85,
+      "park": 92,
+      "lee": 78,
+      "seo": 65,
+      "pyo": 58
+    };
+
+    // 각 성적 등급별로 학생을 저장할 객체
+    var grades = {
+      "A": [],
+      "B": [],
+      "C": [],
+      "D": [],
+      "F": []
+    };
+
+    // 학생들의 성적을 분류하는 함수
+    function classyfyStudentGrades(students, grades) {
+      for (var name in students) {
+        var score = students[name];
+
+        if (score >= 90) {
+          grades.A.push(name);
+        } else if (score >= 80) {
+          grades.B.push(name);
+        } else if (score >= 70) {
+          grades.C.push(name);
+        } else if (score >= 60) {
+          grades.D.push(name);
+        } else {
+          grades.F.push(name);
+        }
+      }
+    }
+
+    // 각 등급별로 학생 이름을 출력하는 함수
+
+    function printGrades(grades) {
+      for (var grade in grades) {
+        console.log(grade + ":" + grades[grade].join(", "));
+      }
+    }
+
+    // 학생 성적을 분류하고 출력
+    classyfyStudentGrades(students, grades);
+    printGrades(grades);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

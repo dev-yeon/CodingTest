@@ -19,3 +19,5 @@
 
 my_name = "nico"
 print(my_name)
+dead = False 
+dead = True 

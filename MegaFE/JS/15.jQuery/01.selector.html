@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      let item = $('.list li');
+      let item3 = $('.list li').eq(2)
+      item.css({ 'background-color': 'coral', 'font-size': '24px' })
+      item3.css({ 'color': 'pink' })
+
+      let child = $('.parents').children('.parent').children();
+      let find = $('.parents').find()
+      console.log(child);
+      //한번에 여러개의 css를 줄 수도 있으며, 콤마로 구분하며, 카멜 케이스를 사용하지 않는다. 
+
+      /*
+      메서드 문법
+      매개변수를 사용하지 않는 유형 = $('선택자').메서드 명()
+      매개변수를 사용하는 유형 = $('선택자').메서드 명(값);
+      매개변수가 여러개 일 때 : $('선택자').메서드 명(값1,값2,값3,값...);
+      매개변수가 객체형 일때 = $('선택자').메서드명({'속성1':'속성1 값', '속성2':'속성2 값'...}
+
+      선택자 종류 
+      자바스크립트와 다르게 css 문법을 따른다 
+      태그선택자  = $('태그명'); 
+      클래스 선택자 : $('.클래스명');
+      아이디 선택자 : $('#아이디명');
+      구조 선택자  : $('선택자:nth-of-type(n)') // css 기반이기 때문에 1번부터 시작 
+      자식 선택자 : $('선택자 > 선택자 ');
+      자손 선택자 : $('선택자 선택자 ');
+
+      배열 선택자 
+      $('선택자').eq(n) //0 번 부터 시작 특정 순번 요소 선택 , []로도 가능하지만 자바스크립트 문법이라 서로 섞지않게하자. 
+      $('선택자').first() //배열 중에서 가장 첫번째 반환 
+      $('선택자').last() //배열 중에서 가장 마지막 반환 
+
+      형제 선택자 
+      $('선택자').prev() //선택자 기준 이전 요소 
+      .next() 다음 요소 
+
+      하위 요소 선택자 
+      .children() //선택자 기준 자식요소 까지 선택 
+      .find() //선택자 기준 자손요소 까지 선택
+
+      상위요소 선택자 
+      .parent() //선택자 기준 부모요소 까지만 선택
+      .parents() // 선택자 기준 조상요소 까지만 선택 
+      */
+    })
+  </script>
+</head>
+
+<body>
+  <p>title</p>
+  <p>title</p>
+  <p>title</p>
+  <p>title</p>
+  <p>title</p>
+  <p>title</p>
+
+  <ul class="list">
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+  </ul>
+
+  <div class="parents">
+    <div class="parent">
+      <div class="child">child</div>
+    </div>
+  </div>
+</body>
+
+</html>

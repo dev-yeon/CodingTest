@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> object </title>
+  <script>
+    /*
+    객체 (object)
+    자바 스크립트는 '객체' 기반의 스크립트 언어입니다.
+    자바 스크립트서는 원시타입을 제외한 모든 것들을 '객체' 로 본다 .
+
+    객체에는 키 (key)와 값(value)으로 구성된 일종의 property의 집합체 이다.
+    property의 값은 자바 스크립트에서 사용 할 수 있는 모든 종류를 넣을 수 있다. 
+     */
+
+    // 한 객체의 정보값을 원시형으로만 저장할때 변수의 종류가 너무 많아진다. 
+    let lgyName = '이경연';
+    let lgyAge = '34';
+    let lgyJob = '주부';
+
+    let lgyName1 = '이경연'
+
+    // 객체로 생성하게 되면 관리가 용이해진다. 
+    const lgy = {
+      name: '이경연',
+      age: '34',
+      job: '주부',
+      gender: 'female'
+    }
+    console.log(lgy); //객체의 전체 호출 
+    console.log(lgy.age); // 객체의 특정한 key만 호출
+    lgy.age = 17; // key 에 있는 value 의 재 할당이 가능 
+
+    //원시 타입의 변수를 복사 
+    let a = 1;
+    let b = a; //1 
+    console.log(b); //1
+    a = 2;
+    console.log(b); //1 
+
+    // 객체 타입 변수 복사 
+    let person = lgy;
+    console.log(person);
+    lgy.job = '무직';
+    console.log(person);
+
+    /*
+    원시 타입은 변수를 복사할때 값 자체가 복사가 되므로 바뀌는 값에 대해서 서로 공유하지 않고, 
+    독립적이 되지만 객체형 타입은 값이 아닌 저장소를 공유하기 때문에 값이 바뀌게 되면 서로 값이 바뀌게 됩니다. 
+    
+    */
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    /*
+    라이브러리 
+    개발에서 자주 사용하는 용어
+    특정 기능이나 작업을 수행하기 위해 미리 작성된 코드 
+    라이브러리는 개발자들이 반복적으로 사용하는 기능들을 간편하고 효율적으로 재사용을 목적으로 만들었다. 
+
+    특징 
+    1. 코드 재사용이 좋아짐
+    2. 코드의 모듈화 
+    3. 표준화 - 
+
+    리액트, 슬라이드 기능, 특정 효과를 주기 위한 코드들이 대부분이다. 
+    //https://swiperjs.com/ 
+    // 
+    */
+    window.onload = () => {
+      const slide = new Swiper('.slide', {
+        autoplay: {
+          // 자동 슬라이드 
+          delay: 2000, // 다음 슬라이드로 넘어가는 시간 (ms)
+          disableOnInteraction: true,
+          //disableOnInteraction : 자동재생시 사용사의 행동이 개입되면 멈추었다가 실행되는 행동설정, 기본값은 false , 
+          // true는 자동재생이 돌아오지 않음. 
+        },
+        // speed: 200, //슬라이드가 전환되는 애니메이션 시간 
+        loop: true,
+        loopAdditionalSlides: 1,
+        //loop 상태일때 미리 로드해야 하는 주가 슬라이드의 수를 정의 
+        // 루프가 연속되어야 하는데 슬라이드가 넘어가지 못하는 현상 발생시 도움을 준다. 
+        slidesPerView: 1,
+        // slidesPerGroup : 2, // 슬라이드 시 움직일 그룹 갯수 (짝수가 안 맞으면 오류 가능성도...)
+        // spaceBetween: 20,// 슬라이드와 슬라이드의 사이의 간격 
+        centerSlides: true, // 슬라이드를 가운데 배치 
+        // 슬라이드가 여러개일때 보여지는 경우 active가 들어간 slide를 기준 
+        allowTouchMove: false, // 스와이프 기능 정지 
+        a11y: false, // 접근성도구 실제로 끄면서 작업을 하지는 않는다 
+        // 접근성 도구 키보드 제어, 리더기 사용, 접근성 향상 네비게이션 기능 사용 
+        // 보통 적으로 true를 유지하며 false를 잘사용하지는 않는다.
+
+        navigation: {
+          // 슬라이드 좌우 버튼 설정  기본 class 명을 가지고 있지만 사용자가 커스텀한 class를 연결가능 
+          prevEl: '.prev-btn',
+          nextEl: '.next-btn'
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true, // 도트 클릭 여부 기본값은 false 입니다. 
+          type: 'fraction',
+          // 버튼 모양 설정 기본값 bullet , 종류는 bullet, / fraction 
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar'
+        },
+        // direction : 'vertical'
+        // 슬라이드 방향 기본값 : horizontal
+
+        effect: 'slide',
+        // 슬라이드 전환 효과 (기본값:slide) fade, cube, flip , coverflow, creative 
+        //반응형
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          }
+        }
+      });
+    }
+  </script>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+    }
+
+    .slide .swiper-slide:nth-of-type(1) {
+      background: lightcoral;
+    }
+
+    .slide .swiper-slide:nth-of-type(2) {
+      background: lightblue;
+    }
+
+    .slide .swiper-slide:nth-of-type(3) {
+      background: lightgreen
+    }
+
+    .slide .swiper-slide:nth-of-type(4) {
+      background: lightcyan
+    }
+
+    .slide .swiper-slide:nth-of-type(5) {
+      background: lightpink;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="swiper-container slide">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">slide01</div>
+      <div class="swiper-slide">slide02</div>
+      <div class="swiper-slide">slide03</div>
+      <div class="swiper-slide">slide04</div>
+      <div class="swiper-slide">slide05</div>
+    </div>
+    <div class="prev-btn swiper-button-prev"></div>
+    <div class="next-btn swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</body>
+
+</html>

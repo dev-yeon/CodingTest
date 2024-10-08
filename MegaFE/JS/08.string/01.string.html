@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문자열 선언 방법 
+    let text = '자바스크립트'; // 기본적으로 가장 많이 사용하는 변수 선언 방법 
+    let text02 = new String('SSR 자바스크립트'); // 생성자 함수로 선언하는 방법  변환할때 많이 사용 
+    // 숫자로 받아온걸 
+
+    console.log(text.length);
+    console.log(text02.length);
+    console.log(text.charAt(1)); // 문자열 중에서 특정한 위치의 값을 반환하는 메서드  // 0 부터 시작 
+    console.log(text02.charAt(1));
+
+    //여러개를 추출 할 때 
+    let a = '안녕하세요. 자바스크립트 수업 시작입니다. '
+    console.log(a.substr(0, 8)); //substr(시작 index, 출력할 글자 수) , 공백도 문자로 표기한다. 
+
+    let birthDay = prompt('생년월일 8 글자를 적어주세요'); //19910717
+    let year = birthDay.substr(0, 4);
+    let month = birthDay.substr(4, 2)
+    let day = birthDay.substr(6, 2);
+
+    document.write(year + ' 년도 ' + month + ' 월 ' + day + ' 일 생 입니다.');
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>animate()</title>
+
+  <style>
+    #wrap {
+      width: 880px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      margin-left: -440px;
+      top: 200px;
+    }
+
+    #panel {
+      width: 100%;
+      height: 220px;
+      border: 1px #000000 solid;
+      margin-bottom: 10px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+
+    }
+
+    #img_wrap {
+      width: 220px;
+      height: 220px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    #start_btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-left: -20px;
+    }
+  </style>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+  <!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+  <!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+  <script>
+    /*
+    여러가지 css속성을 이용해서 애니메이션 효과를 커스텀 할 수 있는 매서드
+    transform 속성은 적용이 안됨 (class로 조절하는 방법을 사용 )
+
+    선택자.animate({"css속성값1":"값1","css속성값2":"값2"......,}, 시간, easing, 콜백 함수)
+    */
+
+    $(document).ready(function () {
+      /*
+      객체의 사이즈 반환하는 메서드 
+      width() = 선언된 값만 반환
+      innerWidth() = width와 padding 값만 포함 
+      outerWidth() = width, padding, border 까지 포함
+      outerWidth(true) = width, padding, border,margin 값을 모두 반환
+      */
+      $('#start_btn').on('click', imgMoving);
+      let endX = $('#panel').innerWidth() - $('#img_wrap').innerWidth();
+
+      function imgMoving() {
+        $('#img_wrap').css({ 'left': endX, 'opacity': 1 }) //애니메이션이 시작 될 때 처음 위치 리셋 
+        $('#img_wrap').stop
+        $('#img_wrap').animate({ 'left': endX, 'opacity': 0 }, 500, function () {
+          $('#img_wrap').css({ 'left': 0, 'opacity': 1 })
+        })
+      }
+    })
+  </script>
+
+
+</head>
+
+<body>
+
+  <div id="wrap">
+
+    <div id="panel">
+
+      <div id="img_wrap">
+        <img id="img_1" src="images/img1.jpg">
+      </div>
+
+    </div>
+
+    <button id="start_btn">시작</button>
+
+  </div>
+
+</body>
+
+</html>

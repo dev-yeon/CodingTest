@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+    dom = document object modeling 
+    - html 문서 내에 있는 모든 요소 
+    - 페이지 내에 있는 모든 html 요소들을 컨트롤 할 수 있다 ( 추적 , 생성, 변형, 삭제  )
+    - 페이지 내에 있는 모든 css 요소들을 컨트롤 할 수 있다. 
+    - 페이지 내에 있는 모든 요소에 이벤트를 적용 할 수 있다. (마우스, 키보드...)
+    */
+
+    window.onload = function () {
+      let a = document.getElementById('text')
+      let b = document.getElementsByClassName('text')[0];
+      let c = document.getElementsByTagName('p')[3];
+      let d = document.querySelector('.text');
+      let e = document.querySelectorAll('.text');
+      let e01 = document.querySelectorAll('p');
+      //document.querySelector() 중복 선택자일 경우 항상 첫번째 요소만 반환. 
+      let newItem = document.createElement('p');
+      document.textContent = 'text'
+      document.body.appendChild(newItem);
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+      console.log(e);
+      console.log(e01);
+
+      //스타일을 입력하는 방법 
+      a.style.color = 'red'
+      a.style.backgroundColor = 'gray'
+    }
+
+    /*
+        dom 요소에 스크립트가 접근할때 순서나 선언에 유의한다. 
+    1. dom 요소보다 스크립트가 먼저 load 되면 안됨.
+    (body 아래 script를 실행하거나,혹은 window 이벤트를 넣어서 지연시키도록 해야 한다.)
+
+    HTMLCollection 과 nodelist의 차이점
+    HTMLCollection 라이브 컬렉션 dom이 변경되면 업데이트를 같이 병행
+
+    modeList는 정적인 요소로서 업데이트를 병행하지는 않는다.
+
+    2. 선택자에 따라 인덱스를 추가하는 경우가 생긴다. 
+    id는 중복하지 않은 고유값이기 때문에, 상관없지만, 태그나 클래스명은 인덱스를 넣어야 정확한 값이 출력 
+
+    3. 스타일 중에 '-' 으로 분류되는 경우 카멜 기법으로 변환 
+    background-color 
+    */
+
+  </script>
+</head>
+
+<body>
+  <p class="text">Lorem ipsum dolor sit amet.1</p>
+  <p class="text">Lorem ipsum dolor sit amet.2</p>
+  <p class="text">Lorem ipsum dolor sit amet.3</p>
+  <p class="text">Lorem ipsum dolor sit amet.4</p>
+  <p class="text">Lorem ipsum dolor sit amet.5</p>
+  <p class="text">Lorem ipsum dolor sit amet.6</p>
+  <p> Lorem ipsum dolor sit amet.7</p>
+  <p id="text">Lorem ipsum dolor sit amet.8</p>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setInterval, setTimeOut</title>
+  <script>
+    /*
+    반복, 예약 관련 메서드
+    스크립트에서 기본 시간 단위는 ms
+    setInterval (실행함수, 시간(ms단위는 생략))
+    = 지정된 시간마다 실행함수를 반복하는 메서드
+
+    clearInterval (함수명) : 반복 실행되는 setInterval 을 초기화
+
+
+    setTimeOut (실행함수, 시간(ms단위는 생략))
+    = 지정된 시간이 경과되면 함수를 실행하는 메서드,
+
+    clearTimeOut (함수명) 실행되는 함수를 초기화
+
+    */
+
+    // function text(){
+    //   console.log('안녕하세요.');
+    // }
+    // setTimeout(text,2000);
+    // setInterval(text,2000)
+
+    window.onload = function () {
+      let item = document.querySelector('input'); // 
+      let btn = document.querySelector('.btn');
+      let result = document.querySelector('.result');
+
+      let won = 0; // 
+      let secWon = 0; // won 을 나눠서 1초에 버는 돈을 대입할 변수 
+      let timer;  // setInterval 에 실행될 함수를 담아줄 변수 
+
+      function calc() {
+
+        clearInterval(timer)
+        // setInterval 과 setTimeout 은 동시에 중첩되는 성질이 있어서,
+        // 항상 이벤트를 시작함과 동시에 중첩도지ㅣ 않도록 리셋시켜주는 clear을 설정해야한다. 
+
+        let time = 0; // 카운트 될 시간
+        won = parseInt(item.value) * 10000;
+        // console.log(won);
+        //value input 의 value 값을 받아오는 메서드 
+        secWon = won / 365 / 24 / 60 / 60;
+        console.log(secWon);
+
+        if (isNaN(won) || won <= 0) {
+          result.innerHTML = '유효한 연봉을 입력해주세요.'
+          return;
+        }
+        //isNaN() = 값이 NaN인지 구별하는 메서드 
+
+        timer = setInterval(function () {
+          time++;
+          result.innerHTML = '당신은' + time + '초에' + parseInt(time * secWon) + '원을 벌고 있습니다.'
+        }, 1000)
+      }
+
+      btn.addEventListener('click', function () {
+        calc();
+      })
+    }
+  </script>
+  <style>
+    body,
+    html {
+      height: 100vh;
+      background: #ddd;
+    }
+
+    .container {
+      width: 500px;
+      background: #fff;
+      padding: 24px;
+      border: solid 1px #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>연봉을 입력하세요(만원)</h1>
+    <input type="text" value="3500">
+    <button class="btn">계산하기</button>
+    <p class="result"> 당신은 1초에 얼마를 벌까요? </p>
+  </div>
+</body>
+
+</html>

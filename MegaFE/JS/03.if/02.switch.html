@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스위치 조건문</title>
+  <script>
+    /*
+    switch 
+    조건문의 한 종류 
+    if 문은 조건에 따라 코드 블록을 실행하는 조건문의 형태 
+    표현식(조건)이 true 로 판단될때 해당 코드 블록이 실행되는 로직 
+
+    switch 문은 특정 표현식 결과에 따라 코드 블록중 하나를 실행하는 조건문 
+    때문에 표현식이 아닌 딱 떨어지는 결과값 
+
+    하나의 case에 담아 표현식에 나오는 값과 일치하는 case를 찾아 코드블럭을 실행하는 방식 
+
+    */
+
+    /*
+    번호 추첨 
+    1~ 99 까지의 숫자를 입력 
+    특정한 숫자가 나오면 해당 상품이 나오는 로직 
+    */
+
+    let num = prompt('1~ 99 까지의 숫자를 입력');
+    num = parseInt(num);
+
+    switch (num) {
+      case 7:
+        console.log(1)
+        break;
+      case 22:
+
+        console.log(2)
+        break;
+      case 40:
+        console.log(3)
+        break;
+      case 77:
+        console.log(4)
+        break;
+      default:
+        console.log(boo);
+        break;
+      //default 는 보통 마지막에 오고, else 와 같은 개념을 가진다 .
+      //break 는 현재 case를 만족하는 경우 명령어를 실행하다 break 문을 만나면 해당 구문을 종료 
+    }
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

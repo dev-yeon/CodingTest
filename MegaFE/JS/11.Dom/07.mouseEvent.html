@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스 객체 이벤트</title>
+  <script>
+    /*
+    마우스 객체 이벤트
+    clientX, clientY 
+    마우스 이벤트가 발생 했을때, '현재 창(브라우저)'을 기준으로 x축과 y축의 좌표를 반환 , 
+    문서가 아닌 화면이 기준이기 때문에 문서의 길이에 영향을 받지 않는다. 
+
+    pageX , pageY 
+    마우스 이벤트가 발생했을 때 ' 문서를 기준 ' 으로 x 축과 y축의 좌표를 반환
+    문서가 기준이기 때문에 문서의 길이에 영향을 받는다. 
+
+    screenX, screenY 
+    마우스 이벤트가 발생했을때 '화면을 기준으로' x 축과 y 축의 좌표를 반환 
+    * 디바이스의 크기가 기준이기 때문에, 디바이스의 크기 종류가 다양해진 현재에는 자주 사용하지는 못함. 
+
+
+    offsetX, offsetY 
+    이벤트 대상이 기준이 되며, 이벤트 대상 안에서 클릭한 위치를 반환 
+    clent, page는 화면 왼쪽 상단 끝이 left0, top0
+    offset은 클릭한 객체의 왼쪽 상단 끝이 left0, top0 
+
+    */
+
+    window.onload = function () {
+      let text01 = document.querySelector('.text01');
+      let text02 = document.querySelector('.text02');
+      let text03 = document.querySelector('.text03');
+      let text04 = document.querySelector('.text04');
+      let box = document.querySelector('.box');
+      document.addEventListener('mousemove', function (e) {
+        // console.log(e.clientX)
+
+        let x1 = e.clientX;
+        let y1 = e.clientY;
+
+        let x2 = e.pageX;
+        let y2 = e.pageY;
+
+        let x3 = e.screenX;
+        let y3 = e.screenY;
+
+        text01.innerHTML = 'clientX' + x1 + 'clientY' + y1;
+        text02.innerHTML = 'pageX' + x2 + 'pageY' + y2;
+        text03.innerHTML = 'screenX' + x3 + 'screenY' + y3;
+
+
+
+      })
+      box.addEventListener('click', function (e) {
+        let x4 = e.offsetX;
+        let y4 = e.offsetY;
+
+        text04.innerHTML = 'offsetX:' + x4 + 'offsetY' + y4;
+      })
+    }
+  </script>
+  <style>
+    body {
+      height: 300vh;
+    }
+
+    .text01,
+    .text02,
+    .text03,
+    .text04 {
+      position: fixed;
+      left: 30px;
+    }
+
+    .text01 {
+      top: 10px;
+    }
+
+    .text02 {
+      top: 30px;
+    }
+
+    .text03 {
+      top: 50px;
+    }
+
+    .text04 {
+      top: 70px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background: pink;
+      position: absolute;
+      top: 400px;
+      left: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="text01"></p>
+  <p class="text02"></p>
+  <p class="text03"></p>
+  <p class="text04"></p>
+
+  <div class="box">box</div>
+</body>
+
+</html>

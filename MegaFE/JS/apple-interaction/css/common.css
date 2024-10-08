@@ -1,0 +1,173 @@
+html,
+body {
+  font-family: 'Noto Sans KR', 'sans-serif';
+}
+
+body {
+  overflow-x: hidden;
+  background: #000000;
+  height: 500vh;
+}
+
+.ir {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0)
+}
+
+/*header*/
+.header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 44px;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0px auto;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 30px;
+  height: 100%;
+  padding: 0px 8px;
+  box-sizing: border-box;
+  background: url(../images/basic/logo_white.png) no-repeat center center/100%;
+
+}
+
+.gnb {
+  display: contents;
+  /*
+  부모 요소의 속성을 자식요소로 변환하는 css
+  부모요소는 사라지고, 자식요소들은 부모요소를 대체하게 된다.
+  */
+}
+
+.gnb-list {
+  display: contents;
+
+}
+
+.gnb-list li a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  transition: 500ms;
+}
+
+.cs-list {
+  display: contents;
+  height: 100%;
+}
+
+.cs-list li {
+  padding: 0px 8px;
+  box-sizing: border-box;
+  width: 30px;
+  height: 100%;
+}
+
+.cs-list li a {
+  color: rgba(255, 255, 255, 0.5);
+  transition: 500ms;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cs-list li a:hover {
+  color: rgba(255, 255, 255, 1);
+
+}
+
+.content-header-container {
+  position: absolute;
+  top: 44px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 52px;
+}
+
+.content-header {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0px auto;
+  height: 100%;
+}
+
+.content-logo a {
+  color: #fff;
+  font-size: 21px;
+
+}
+
+.content-list-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.content-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content-list li a {
+  color: rgba (255, rgba(255, 255, 255, 0.5));
+  transition: 500ms;
+  font-size: 12px;
+}
+
+.content-list li a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.content-list-wrapper .sell-btn {
+  background: blue;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.nav-fixed .content-header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: saturate(150%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px);
+  /* 
+  backdrop-filter 배경에 효과 주는 속성 
+  saturate : 채도
+  blur : 흐림처리 
+  opacity : 투명도
+  brightness : 밝기 
+  contrast : 색상 대비 
+
+  */
+
+  border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+  transition: backdrop-filter 300ms, background 300ms linear;
+
+}
+
+.nav-fixed .content-header-container .content-header {
+  border: none;
+
+}

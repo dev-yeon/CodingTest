@@ -1,7 +1,11 @@
-const title = document.querySelector(".hello h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
 
-function handleTitleClick() {
-  console.log("title was Clicked!");
+function onLoginSubmit(event){
+  event.preventDefault();
+  // const username = loginInput.value;
+  // console.log(event);
+  console.log(loginInput.value);
 }
-// title.style.color = "blue";
-title.addEventListener("click", handleTitleClick);
+
+loginForm.addEventListener("submit" , onLoginSubmit)

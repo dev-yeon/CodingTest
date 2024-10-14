@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+  justify-items: center;
+}
+
+/* p {
+  margin-left: 0px;
+  margin-right: 60px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+} */
+
+.title {
+  padding: 10px 0;
+  /* 상단/하단 여백만 */
+  text-align: left;
+  /* 텍스트를 왼쪽 정렬 */
+}
+
+.title p {
+  margin: 0;
+  /* p 요소의 기본 여백 제거 */
+  padding: 0;
+  /* 패딩 제거 */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px auto;
+  ;
+  width: 30%;
+}
+
+.out-box {
+  width: 48%;
+  margin: 10px 0;
+}
+
+.box {
+  background-color: white;
+  margin: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  padding: 10px;
+}
+
+.box-title {
+  background-color: white;
+  color: black;
+
+  font-weight: bold;
+  position: absolute;
+
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 공통 스타일 설정 */
+.thin-color,
+.color {
+  width: 100%;
+
+}
+
+/* 개별 높이 설정 */
+.thin-color {
+  height: 50px;
+}
+
+.color {
+  height: 150px;
+}
+
+/* 색상 코드 별로 Pseudo Selector를 이용해 배경색 변경 */
+.out-box:nth-child(1) .thin-color,
+.out-box:nth-child(1) .color {
+  background-color: #FF6347;
+  /* Tomato */
+}
+
+.out-box:nth-child(2) .thin-color,
+.out-box:nth-child(2) .color {
+  background-color: #008080;
+  /* Teal */
+}
+
+.out-box:nth-child(3) .thin-color,
+.out-box:nth-child(3) .color {
+  background-color: #DEB887;
+  /* Burlywood */
+}
+
+.out-box:nth-child(4) .thin-color,
+.out-box:nth-child(4) .color {
+  background-color: #D7BFD7;
+  /* Thistle */
+}
+
+.box-code {
+  padding: 10px;
+  font-family: monospace;
+  color: #666;
+}
+
+/* 반응형 디자인: 화면이 작아졌을 때 1열로 표시 */
+@media (max-width: 600px) {
+  .out-box {
+    width: 100%;
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Game</title>
+</head>
+<h1>Random Number Game</h1>
+
+<body>
+
+  <form id="game-form">
+    <!-- 사용자에게 범위를 입력받는 부분 -->
+    <label for="max-number">Generate a number between 0 and </label>
+    <input type="number" id="max-number" value="40">
+    <br><br>
+    <!-- 사용자에게 추측 숫자를 입력받는 부분 -->
+    <label for="user-guess">Guess the number: </label>
+    <input type="number" id="user-guess">
+    <!-- 제출 버튼 -->
+    <button type="submit">Play!</button>
+  </form>
+  <!-- 결과를 보여주는 부분 -->
+  <p id="result"></p>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+
+
+</html>

@@ -12,4 +12,13 @@ function onLoginSubmit(event){
 
 }
 
-loginForm.addEventListener("submit" , onLoginSubmit)
+loginForm.addEventListener("submit" , onLoginSubmit);
+
+const savedUsername = localStorage.getItem("username");
+
+console.log(savedUsername);
+if(savedUsername === null) {
+  // show the form 
+} else {
+  // show the greetings 
+}

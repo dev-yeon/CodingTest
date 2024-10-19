@@ -12,6 +12,7 @@
 while True:
     inputNum = int(input('숫자를 입력하세요: '))    #   사용자로부터 키보드 입력을 받습니다.
 
-    if :
-
+    if inputNum > 0:
+        print(inputNum)
     else:
+        break

@@ -6,3 +6,8 @@
 
 def getLargerOne(a, b):
     # 함수의 내용(body)을 작성하시오.
+    if( a > b):
+        return a
+    else:
+        return b
+    

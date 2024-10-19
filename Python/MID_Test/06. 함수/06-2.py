@@ -21,5 +21,6 @@ def calcAverage(inputList):
     avg = None 
 
     #   함수를 완성 하시오.
+    avg = calcSum(sample) / len(sample)
 
     return avg

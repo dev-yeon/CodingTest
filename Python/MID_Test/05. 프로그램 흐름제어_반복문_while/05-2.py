@@ -7,11 +7,14 @@
 #########################################
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-for num in nums:
-    print(num, end=' ')
-print('')
+# for num in nums:
+#     print(num, end=' ')
+# print('')
 #########################################
 
 num = 1
-
-while :
+idx=0
+while idx <len(nums):
+    print(nums[idx], end='')
+    idx +=1 # index 값을 1씩 증가 
+print('')

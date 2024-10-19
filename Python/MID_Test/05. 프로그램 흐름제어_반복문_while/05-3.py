@@ -18,5 +18,10 @@ num1 = 1
 num2 = 1
 
 
-while :
-    while :
+while num1 <= len(nums):
+    num2=1
+    while num2 <= len(nums):
+        print(num1 * num2, end=' ')
+        num2+=1
+    num1+=1
+    print('')

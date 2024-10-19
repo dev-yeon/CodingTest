@@ -18,6 +18,5 @@ cityTempAvg = []    #   5개 도시 각각의 연 평균 기온을 저장할 리
 
 for key in cityTempDict.keys():
     #   각 도시의 연 평균 기온을 구한 후 cityTempAvg 리스트에 저장하시오.
-
-
-print(cityTempAvg)  # 결과 확인
+    cityTempAvg.append( sum(cityTempDict[key]) / len(cityTempDict[key]) )
+print(cityTempAvg[key])  # 결과 확인
